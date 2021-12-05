@@ -43,9 +43,9 @@ public class GaussElimination {
 
 		double [][]matA = {
 
-				{2,3,-1},
-				{-4,0,2},
-				{1,1,3}
+				{1,1,5,11},
+				{2,1,7,15},
+				{2,0,4,8}
 		};
 
 
@@ -65,17 +65,23 @@ public class GaussElimination {
 
 		for(int j = 0; j < mat[0].length; j++) {
 			
+			// Linha que será multiplicada pelo fator e somada às outras linhas
+			int rowToMul = j;
+			
 			for(int i = j+1; i < mat.length; i++) {
 				
 				double factor = -mat[i][j];
 				
 				for(int k = 0; k < mat[i].length; k++) {
 					
-					mat[i][k] += factor * mat[i-1][k];
+					mat[i][k] += factor * mat[rowToMul][k];
 					
 				}
 				
 			}
+			
+			// Normalizar novamente os valores
+			normalizePivots(mat);
 			
 		}
 
