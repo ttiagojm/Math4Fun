@@ -1,13 +1,12 @@
 package matrizes;
 
-
 /*
- * State: Em progresso
+ * State: Pronto
  */
 
 public class GaussElimination {
 
-	public static boolean validateColumns(double[][]mat) {
+	static boolean validateColumns(double[][]mat) {
 		// Verificar se temos sempre o mesmo número de colunas
 
 		// Tamanho da primeira linha
@@ -25,7 +24,7 @@ public class GaussElimination {
 
 	}
 
-	public static void printMat(double[][] mat) {
+	static void printMat(double[][] mat) {
 
 		for(int i = 0; i < mat.length; i++) {
 			for(int j = 0; j < mat[i].length; j++) {
@@ -34,7 +33,28 @@ public class GaussElimination {
 
 			System.out.println();
 		}
+		
+		System.out.println();
 
+	}
+	
+	static void printResult(double[][] mat) {
+		
+		for(int i = 0; i < mat.length; i++) {
+			
+			for(int j = 0; j < mat[i].length; j++) {
+				
+				if(j+1 == mat[i].length) {
+					System.out.printf("%.2f", mat[i][j]);
+				}
+				else {
+					System.out.printf("%.2f.x%d %c ", mat[i][j], j+1, (j+2) == mat[i].length ? '=':'+');
+				}
+			}
+			
+			System.out.print("\n");
+		}
+		
 	}
 
 
@@ -42,10 +62,9 @@ public class GaussElimination {
 	public static void main(String[] args) {
 
 		double [][]matA = {
-
-				{1,1,5,11},
-				{2,1,7,15},
-				{2,0,4,8}
+				{2,3,1, 10},
+				{0,1,3, 2},
+				{1,0,3, 3}
 		};
 
 
@@ -58,6 +77,8 @@ public class GaussElimination {
 		findUpperTriMat(matA);
 
 		printMat(matA);
+		
+		printResult(matA);
 	}
 
 
@@ -95,9 +116,11 @@ public class GaussElimination {
 				continue;
 			}
 			
+			double divisor = mat[i][i];
+			
 			for(int j = 0; j < mat[i].length; j++) {
 
-				mat[i][j] /= mat[i][i];
+				mat[i][j] /= divisor;
 
 			}
 
