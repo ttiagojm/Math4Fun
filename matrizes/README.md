@@ -4,7 +4,7 @@ Aqui tenciono colocar scripts feitos em Java, onde aplico a matéria de matrizes
 
 - [x] Produto escalar
 - [x] Multiplicação de Matrizes
-- [ ] Eliminação de Gauss
+- [x] Eliminação de Gauss
 - [x] Cálculo do Determinante
 - [x] Cálculo da Matriz inversa (caso seja inversível)
 - [x] Verificação da dependência de linhas/colunas da matriz
